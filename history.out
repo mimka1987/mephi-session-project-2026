@@ -1,0 +1,38 @@
+    1  groupsdd sudents
+    2  groupadd students
+    3  useradd -u 1234 -g students user1
+    4  chage -M 90 user1
+    5  passwd user1
+    6  chage -l user1
+    7  id user1
+    8  find / -type f -per -4000 2>/dev/null > ~/suid_files.out
+    9  cat ~/suid_files.out
+   10  find / -type f -perm -4000 2>/dev/null > ~/suid_files.out
+   11  cat ~/suid_files.out
+   12  exit
+   13  chown root ~/mycat
+   14  chown root /home/user/mycat
+   15  chmod u+s /home/user/mycat
+   16  exit
+   17  setcap "cap_dac_read_search=ep" /home/user/mycat_cap
+   18  getcap /home/user/mycat_cap
+   19  exit
+   20  user1 ALL=(root) /usr/bin/date, /usr/bin/timedatectl
+   21  visudo
+   22  export EDITOR=nano
+   23  visudo
+   24  su - user1
+   25  exit
+   26  sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS   90/' /etc/login.defs
+   27  for u in user1 user2 user3 curator1 curator2; do     chage -M 90 "$u"; done
+   28  if grep -q "^minlen" /etc/security/pwquality.conf; then     sed -i 's/^minlen.*/minlen = 12/' /etc/security/pwquality.conf; else     echo "minlen = 12" >> /etc/security/pwquality.conf; fi
+   29  clear
+   30  echo "Hello from Student: М265256" > /mephi-web/index.html
+   31  chmod 644 /mephi-web/index.html
+   32  restorecon -v /mephi-web/index.html
+   33  curl http://localhost/ > ~/curl.out
+   34  cat ~/curl.out
+   35  clear
+   36  stat /data/mephi-2026 > ~/stat.out
+   37  stat /mephi-web >> ~/stat.out
+   38  history > ~/history.out
